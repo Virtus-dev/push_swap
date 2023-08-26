@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include "libft/includes/libft.h"
 #include "libft/includes/ft_printf.h"
+#include "libft/src/get_next_line_bonus.h"
 
 typedef struct Node
 {

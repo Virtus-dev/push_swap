@@ -6,7 +6,7 @@
 /*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:45:16 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/07 20:32:49 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:33:24 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int main(int argc, char** argv)
 {
     int size;
     int* parsed;
+    //char* sequence = get_next_line(0);
    
     parsed = NULL;
     if (argc > 1)
