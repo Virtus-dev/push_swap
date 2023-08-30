@@ -61,7 +61,7 @@ int*	ft_parse(char** splited, int argc)
 	i = argc;
 	j = 0;
 	size = ft_matrix_size(splited);
-	values = (int*) malloc (ft_matrix_size(splited) * sizeof(int));
+	values = (int*) ft_calloc (ft_matrix_size(splited) * sizeof(int), 1);
 	if (!values)
 		return (free(values), NULL);
 	while (i < size)

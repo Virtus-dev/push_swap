@@ -17,12 +17,13 @@ int ft_is_sorted(t_stack *stack)
     int i;
 	Node*	current;
 
+	current = stack->head;
     i = 0;
     while (i < stack->size)
     {
-		current = stack->head;
-        if ((current->value > current->next->value) && current->next)
+        if (current->next && (current->value > current->next->value))
             return (0);
+		current = current->next;
         i++;
     }
     return (1);

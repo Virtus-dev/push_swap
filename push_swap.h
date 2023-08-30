@@ -20,7 +20,6 @@
 #include <stdio.h>
 #include "libft/includes/libft.h"
 #include "libft/includes/ft_printf.h"
-#include "libft/src/get_next_line_bonus.h"
 
 typedef struct Node
 {
@@ -58,7 +57,7 @@ void	ft_initialize_stack(t_stack* stack);
 void    ft_fill_stack(t_stack* stack, int size, int* parsed);
 void    ft_free_stack(t_stack* stack);
 int		get_max_value(t_stack* stack);
-void	ft_print_stack(t_stack* stack);
+void	ft_print_stack(t_stack* stack, char c);
 // argv_checker
 int		ft_param_checker(int argc, char** argv);
 int		*ft_parse(char** splited, int argc);

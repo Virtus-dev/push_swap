@@ -3,7 +3,7 @@
 
 Node	*create_node(int value)
 {
-    Node* newNode = (Node*) malloc(sizeof(Node));
+    Node* newNode = (Node*) ft_calloc(sizeof(Node), 1);
 	newNode->value = value;
 	newNode->next = NULL;
 	return (newNode);

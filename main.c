@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:45:16 by arigonza          #+#    #+#             */
-/*   Updated: 2023/08/26 13:33:24 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:43:21 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void    ft_leaks(void)
-{
-    system("leaks -q push_swap");
-}
 
 void    push_swap(int* parsed, int size)
 {
     t_stack stackA;
     t_stack stackB;
     
-    ft_initialize_stack(&stackA);
-    ft_initialize_stack(&stackB);
+    //ft_initialize_stack(&stackA);
+    //ft_initialize_stack(&stackB);
     
-    while (size > 0)
+    stackA.head = NULL;
+    stackA.size = 0;
+    stackB.head = NULL;
+    stackB.size = 0;
+    
+    while (0 < size)
     {
-        insert_node_head(&stackA, create_node(parsed[size - 1]));
+        insert_node_head(&stackA, create_node(parsed[size-1]));
         size--;
     }
-    if (ft_is_sorted(&stackA))
+    //ft_print_stack(&stackA, 'a');
+    if (!ft_is_sorted(&stackA))
     {
-        ft_free_stack(&stackA);
-        ft_free_stack(&stackB);
-        return;
+        ft_sort_stack(&stackA, &stackB);
+        //ft_print_stack(&stackA, 'a');
     }
-    ft_sort_stack(&stackA, &stackB);
+    ft_free_stack(&stackA);
+    ft_free_stack(&stackB);
 }
 
 int main(int argc, char** argv)
 {
     int size;
     int* parsed;
-    //char* sequence = get_next_line(0);
    
     parsed = NULL;
     if (argc > 1)

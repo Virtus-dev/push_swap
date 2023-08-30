@@ -6,7 +6,7 @@
 /*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:08:53 by arigonza          #+#    #+#             */
-/*   Updated: 2023/08/26 13:54:19 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/06/28 10:26:02 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,29 @@ void	ft_exit_on_error(t_stack* stackA, t_stack* stackB)
 void	ft_do_op(char* op, t_stack* stackA, t_stack* stackB)
 {
 	if (!strcmp(op, "sa\n"))
-		ft_sa(stackA);
+		ft_sa(&stackA);
 	else if (!strcmp(op, "pa\n"))
-		ft_pa(stackA, stackB);
+		ft_pa(&stackA, &stackB);
 	else if (!strcmp(op, "sb\n"))
-		ft_sb(stackB);
+		ft_sb(&stackB);
 	else if (!strcmp(op, "pb\n"))
-		ft_pb(stackB, stackA);
+		ft_pb(&stackB, &stackA);
 	else if (!strcmp(op, "ss\n"))
-		ft_ss(stackA, stackB);
+		ft_ss(&stackA, &stackB);
 	else if (!strcmp(op, "ra\n"))
-		ft_ra(stackA);
+		ft_ra(&stackA);
 	else if (!strcmp(op, "rb\n"))
-		ft_rb(stackB);
+		ft_rb(&stackB);
 	else if (!strcmp(op, "rr\n"))
-		ft_rr(stackA, stackB);
+		ft_rr(&stackA, &stackB);
 	else if (!strcmp(op, "rra\n"))
-		ft_rra(stackA);
+		ft_rra(&stackA);
 	else if (!strcmp(op, "rrb\n"))
-		ft_rrb(stackB);
+		ft_rrb(&stackB);
 	else if (!strcmp(op, "rrr\n"))
-		ft_rrr(stackA, stackB);
+		ft_rrr(&stackA, &stackB);
 	else
-		ft_exit_on_error(stackA, stackB);
+		ft_exit_on_error(&stackA, &stackB);
 }
 
 void    ft_checker(char** argv, int argc)
@@ -69,8 +69,5 @@ void    ft_checker(char** argv, int argc)
 		free(op);
 		op = get_next_line(0);
 	}
-	if (ft_is_sorted(&stackA))
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
+	if (ft_is_sorted())
 }

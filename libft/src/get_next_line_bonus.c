@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:21:34 by arigonza          #+#    #+#             */
-/*   Updated: 2023/08/26 13:29:36 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:32:44 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_get_line(char *buffer)
 		return (NULL);
 	while (buffer[i] != '\n' && buffer[i])
 		i++;
-	line = ft_calloc_gnl((i + 2), sizeof(char));
+	line = ft_calloc((i + 2), sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -51,8 +51,8 @@ char	*ft_update_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	buffer_size = ft_strlen_gnl(buffer);
-	new_buffer = ft_calloc_gnl((buffer_size - i + 1), sizeof(char));
+	buffer_size = ft_strlen(buffer);
+	new_buffer = ft_calloc((buffer_size - i + 1), sizeof(char));
 	if (!new_buffer)
 		return (NULL);
 	i++;
@@ -68,7 +68,7 @@ char	*read_file(int fd, char *backup)
 	char	*buffer;
 	ssize_t	readed_bytes;
 
-	buffer = ft_calloc_gnl((BUFFER_SIZE + 1), sizeof(char));
+	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (NULL);
 	readed_bytes = 1;
@@ -82,8 +82,8 @@ char	*read_file(int fd, char *backup)
 			return (NULL);
 		}
 		buffer[readed_bytes] = '\0';
-		backup = ft_strjoin_gnl(backup, buffer);
-		if (ft_strchr_gnl(backup, '\n'))
+		backup = ft_strjoin(backup, buffer);
+		if (ft_strchr(backup, '\n'))
 			break ;
 	}
 	free(buffer);
@@ -93,12 +93,12 @@ char	*read_file(int fd, char *backup)
 char	*get_next_line(int fd)
 {
 	char			*line;
-	//int				line_length;
+	int				line_length;
 	static char		*backup[1040];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	//line_length = 0;
+	line_length = 0;
 	backup[fd] = read_file(fd, backup[fd]);
 	if (!backup[fd])
 		return (NULL);

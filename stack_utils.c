@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 10:08:03 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/04 15:48:32 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:39:13 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void    ft_free_stack(t_stack* stack)
     Node* current;
     Node* next_node;
 
+    if (!stack->head)
+        return;
     current = stack->head;
     next_node = current->next;
     while (current->next)
@@ -39,14 +41,17 @@ void    ft_fill_stack(t_stack* stack, int size, int* parsed)
     }
 }
 
-void    ft_print_stack(t_stack* stack)
+void    ft_print_stack(t_stack* stack, char c)
 {
     Node* current;
 
     current = stack->head;
     while (current)
     {
-        ft_printf("stack: %d\n", current->value);
+        if (c == 'a' || c =='A')
+            ft_printf("stack A: %d\n", current->value);
+        else if (c == 'b' || c == 'B')
+            ft_printf("stack B: %d\n", current->value);
         current = current->next;
     }
 }
