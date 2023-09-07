@@ -24,6 +24,7 @@
 typedef struct Node
 {
     int	value;
+	int	index;
 	struct Node* next;
 }Node;
 

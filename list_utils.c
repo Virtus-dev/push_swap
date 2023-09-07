@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 13:35:42 by arigonza          #+#    #+#             */
+/*   Updated: 2023/09/02 13:35:42 by arigonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -5,10 +17,17 @@ Node	*create_node(int value)
 {
     Node* newNode = (Node*) ft_calloc(sizeof(Node), 1);
 	newNode->value = value;
+	newNode->index = 0;
 	newNode->next = NULL;
 	return (newNode);
 }
 
+/**
+ * @brief Takes out the first node of a t_stack and returns it.
+ * 
+ * @param stack 
+ * @return Node* 
+ */
 Node	*pop(t_stack* stack)
 {
 	Node*	tmp;

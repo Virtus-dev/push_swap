@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
+/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:45:16 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/03 17:43:21 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:26:31 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@ void    push_swap(int* parsed, int size)
     t_stack stackA;
     t_stack stackB;
     
-    //ft_initialize_stack(&stackA);
-    //ft_initialize_stack(&stackB);
+    ft_initialize_stack(&stackA);
+    ft_initialize_stack(&stackB);
     
+    /*
     stackA.head = NULL;
     stackA.size = 0;
     stackB.head = NULL;
     stackB.size = 0;
+    */
     
     while (0 < size)
     {
         insert_node_head(&stackA, create_node(parsed[size-1]));
         size--;
     }
-    //ft_print_stack(&stackA, 'a');
     if (!ft_is_sorted(&stackA))
     {
         ft_sort_stack(&stackA, &stackB);

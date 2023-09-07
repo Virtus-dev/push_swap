@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+         #
+#    By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 13:45:44 by arigonza          #+#    #+#              #
-#    Updated: 2023/07/03 17:38:30 by arigonza         ###   ########.fr        #
+#    Updated: 2023/08/30 13:21:26 by arigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,3 +51,5 @@ py : all
 	python3 visualizer.py `ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`
 
 re : fclean all
+
+phony : all clean fclean re

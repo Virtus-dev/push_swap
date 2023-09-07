@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
+/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 10:08:03 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/03 17:39:13 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:19:26 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ void    ft_free_stack(t_stack* stack)
     }
 }
 
+/**
+ * @brief Fill a stack with the number of elements passed by parameter
+ * 
+ * @param stack t_stack.
+ * @param size number of elements used to fill the t_stack.
+ * @param parsed Elements passed to fill the t_stack. (int*)
+ */
 void    ft_fill_stack(t_stack* stack, int size, int* parsed)
 {
     int	i;
@@ -41,22 +48,23 @@ void    ft_fill_stack(t_stack* stack, int size, int* parsed)
     }
 }
 
-void    ft_print_stack(t_stack* stack, char c)
+void    ft_print_stack(t_stack* stack)
 {
     Node* current;
 
     current = stack->head;
     while (current)
     {
-        if (c == 'a' || c =='A')
-            ft_printf("stack A: %d\n", current->value);
-        else if (c == 'b' || c == 'B')
-            ft_printf("stack B: %d\n", current->value);
+        ft_printf("stack: %d\n", current->value);
         current = current->next;
     }
 }
 
-// Initialize an empty stack
+/**
+ * @brief Initialize a t_stack as NULL
+ * 
+ * @param stack 
+ */
 void ft_initialize_stack(t_stack* stack)
 {
     stack->head = NULL;
@@ -64,19 +72,21 @@ void ft_initialize_stack(t_stack* stack)
 }
 
 // Function to get the maximum value in the stack
-int get_max_value(t_stack* stack)
+int get_max_index(t_stack* stack)
 {
-    int max_value = INT_MIN;
-    Node* current = stack->head;
-
+    int max_index;
+    Node* current;
+    
+    current = stack->head;
+    max_index = current->index;
     while (current != NULL)
     {
-        if (current->value > max_value)
+        if (current->index > max_index)
         {
-            max_value = current->value;
+            max_index = current->index;
         }
         current = current->next;
     }
 
-    return max_value;
+    return max_index;
 }
