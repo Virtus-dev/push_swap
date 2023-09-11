@@ -25,6 +25,10 @@ typedef struct Node
 {
     int	value;
 	int	index;
+	int	pos;
+	int target_pos;
+	int a_cost;
+	int b_cost;
 	struct Node* next;
 }Node;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arigonza <arigonza@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 13:35:39 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/05 13:30:50 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:59:51 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,16 @@ void	ft_push_until_3(t_stack* stackA, t_stack* stackB)
 	}
 }
 
-void	ft_sort_3(t_stack* stack)
+/**
+ * @brief Takes a number and changes it to positive
+ * 
+ * @param nbr 
+ * @return int 
+ */
+int		ft_get_absolute(int nbr)
 {
-	int	max_index;
-	Node*	current;
-
-	current = stack->head;
-	max_index = get_max_index(stack);
-	if (current->index == max_index)
-		ft_ra(stack);
-		if (!ft_is_sorted(stack))
-			ft_sa(stack);
-	else if (current->next->index == max_index)
-		ft_rra(stack);
-		if (!ft_is_sorted(stack))
-			ft_sa(stack);
-	else if ((current->next->next->index == max_index) && !ft_is_sorted(stack))
-		ft_sa(stack);
+	if (nbr < 0)
+		return (nbr * -1);
+	return (nbr);
 }
+
