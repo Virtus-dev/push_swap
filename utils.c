@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 13:35:39 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/11 16:59:51 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:21:37 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ void	ft_push_until_3(t_stack* stackA, t_stack* stackB)
 }
 
 /**
- * @brief Takes a number and changes it to positive
+ * @brief Takes a number and changes it to positive.
  * 
  * @param nbr 
- * @return int 
+ * @return int
  */
 int		ft_get_absolute(int nbr)
 {
@@ -96,3 +96,14 @@ int		ft_get_absolute(int nbr)
 	return (nbr);
 }
 
+void    ft_print_stack(t_stack* stack)
+{
+    Node* current;
+
+    current = stack->head;
+    while (current)
+    {
+        ft_printf("stack: %d\n", current->value);
+        current = current->next;
+    }
+}

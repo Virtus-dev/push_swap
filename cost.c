@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:40:07 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/11 17:52:49 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:55:20 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	ft_cost(t_stack* stackA, t_stack* stackB)
 	{
 		current_B->b_cost = current_B->pos;
 		if (current_B->pos > (stackB->size/2))
-			current_B->b_cost = (current_B->size - current_B->pos) * -1;
+			current_B->b_cost = (stackB->size - current_B->pos) * -1;
 		current_B->a_cost = current_B->target_pos;
 		if (current_B->target_pos > (stackA->size))
-			current_B->a_cost = (current_A->size - current_B->target_pos)* -1;
+			current_B->a_cost = (stackA->size - current_B->target_pos)* -1;
 		current_B = current_B->next;
 	}
 }
@@ -50,6 +50,5 @@ void	ft_choose_cheapest_and_move(t_stack* stackA, t_stack* stackB)
 		}
 		current = current->next;
 	}
-	// TODO ft_move_chose
-	
+	ft_choose_move(stackA, stackB, a_cost, b_cost);
 }

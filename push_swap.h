@@ -57,12 +57,14 @@ void	destroy_node(Node* node);
 // utils
 int		ft_matrix_size(char** matrix);
 void	ft_free_matrix(char** matrix);
+void	ft_push_until_3(t_stack* stackA, t_stack* stackB);
+int		ft_get_absolute(int nbr);
 // stack utils
 void	ft_initialize_stack(t_stack* stack);
 void    ft_fill_stack(t_stack* stack, int size, int* parsed);
 void    ft_free_stack(t_stack* stack);
-int		get_max_value(t_stack* stack);
-void	ft_print_stack(t_stack* stack, char c);
+int		get_max_index(t_stack* stack);
+void	ft_print_stack(t_stack* stack);
 // argv_checker
 int		ft_param_checker(int argc, char** argv);
 int		*ft_parse(char** splited, int argc);
@@ -82,13 +84,25 @@ void	ft_pb(t_stack* stackB, t_stack* stackA);
 void	ft_ra(t_stack* stackA);
 void	ft_rb(t_stack* stackB);
 void	ft_rr(t_stack* stackA, t_stack* stackB);
+void	ft_rotate_a(t_stack* stackA, int* a_cost);
+void	ft_rotate_b(t_stack* stackB, int* b_cost);
+void	ft_rotate_both(t_stack* stackA, t_stack* stackB, int* a_cost, int* b_cost);
 // reverse rotate operations
 void	ft_rra(t_stack* stackA);
 void	ft_rrb(t_stack* stackB);
 void	ft_rrr(t_stack* stackA, t_stack* stackB);
-
+void	ft_reverse_rotate_both(t_stack* stackA, t_stack* stackB, int* a_cost, int* b_cost);
+// target manager
+void	ft_set_position(t_stack* stack);
+int		ft_find_tp(t_stack* stackA, int b_index);
+void	ft_set_target_position(t_stack* stackA, t_stack* stackB);
+// costs
+void	ft_cost(t_stack* stackA, t_stack* stackB);
+void	ft_choose_cheapest_and_move(t_stack* stackA, t_stack* stackB);
+// sorting
+void	ft_sort_3(t_stack* stack);
+void	ft_choose_move(t_stack* stackA, t_stack* stackB, int a_cost, int b_cost);
 //checker
 void	ft_exit_on_error(t_stack* stackA, t_stack* stackB);
-void	ft_do_op(char* op, t_stack* stackA, t_stack* stackB);
 
 #endif
