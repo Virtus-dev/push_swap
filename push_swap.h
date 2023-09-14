@@ -64,7 +64,7 @@ void	ft_initialize_stack(t_stack* stack);
 void    ft_fill_stack(t_stack* stack, int size, int* parsed);
 void    ft_free_stack(t_stack* stack);
 int		get_max_index(t_stack* stack);
-void	ft_print_stack(t_stack* stack);
+int		ft_get_lowest_index(t_stack* stackA);
 // argv_checker
 int		ft_param_checker(int argc, char** argv);
 int		*ft_parse(char** splited, int argc);
@@ -99,10 +99,14 @@ void	ft_set_target_position(t_stack* stackA, t_stack* stackB);
 // costs
 void	ft_cost(t_stack* stackA, t_stack* stackB);
 void	ft_choose_cheapest_and_move(t_stack* stackA, t_stack* stackB);
+void	ft_index_it(t_stack* stack, int stack_size);
 // sorting
+void	ft_sort_all(t_stack* stackA, t_stack* stackB);
 void	ft_sort_3(t_stack* stack);
+void	ft_shift_stack(t_stack* stackA);
 void	ft_choose_move(t_stack* stackA, t_stack* stackB, int a_cost, int b_cost);
 //checker
 void	ft_exit_on_error(t_stack* stackA, t_stack* stackB);
+void	ft_print_stack(t_stack* stack);
 
 #endif

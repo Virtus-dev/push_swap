@@ -6,11 +6,11 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 21:51:58 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/13 12:10:33 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:15:05 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /**
  * @brief Checks if all of them are numbers and if some of them are duplicate.

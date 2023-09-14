@@ -6,11 +6,11 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:17:07 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/13 11:41:38 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:51:38 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_rotate_both(t_stack* stackA, t_stack* stackB, int* a_cost, int* b_cost)
 {
@@ -29,7 +29,8 @@ void	ft_reverse_rotate_both(t_stack* stackA, t_stack* stackB, int* a_cost, int* 
 		ft_rrr(stackA, stackB);
 		(*a_cost)++;
 		(*b_cost)++;
-	}	
+	}
+}
 void	ft_rotate_a(t_stack* stackA, int* a_cost)
 {
 	while (*a_cost)

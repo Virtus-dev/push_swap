@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 Node	*create_node(int value)
 {

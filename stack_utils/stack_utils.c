@@ -6,11 +6,11 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 10:08:03 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/13 16:24:54 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:25:58 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /**
  * @brief frees the stack.
@@ -91,12 +91,20 @@ int ft_get_lowest_index(t_stack* stack)
 {
     Node*	current;
     int		lowest;
+    int     pos;
 	
+    ft_set_position(stack);
+    lowest = INT_MAX;
+    current = stack->head;
+    pos = current->pos;
 	while (current)
 	{
 		if (current->index < lowest)
-			lowest = current->index;
+        {
+            lowest = current->index;
+            pos = current->pos;
+        }
 		current = current ->next;
 	}
-	return lowest;
+	return (pos);
 } 

@@ -6,11 +6,11 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 19:26:06 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/03 17:32:41 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:29:29 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int ft_is_sorted(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 13:35:39 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/13 16:21:37 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:21:58 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,14 @@ void	ft_push_until_3(t_stack* stackA, t_stack* stackB)
 	pushed = 0;
 	while (i < stack_size && pushed < (stack_size / 2) && stack_size > 5)
 	{
-		if (current->index <= stack_size / 2)
+		current = stackA->head;
+		if (current->index <= (stack_size / 2))
 		{
 			ft_pb(stackB, stackA);
 			pushed++;
 		}
 		else
-		{
 			ft_ra(stackA);
-		}
 		i++;
 	}
 	while ((stack_size - pushed) > 3)
@@ -103,7 +102,7 @@ void    ft_print_stack(t_stack* stack)
     current = stack->head;
     while (current)
     {
-        ft_printf("stack: %d\n", current->value);
+        ft_printf("stack: %d\n", current->index);
         current = current->next;
     }
 }

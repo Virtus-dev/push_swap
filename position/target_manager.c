@@ -6,13 +6,13 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:14:43 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/13 11:15:00 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:35:45 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_set_psotition(t_stack* stack)
+void	ft_set_position(t_stack* stack)
 {
     int i;
     Node* current;
@@ -63,8 +63,8 @@ void	ft_set_target_position(t_stack* stackA, t_stack* stackB)
 {
     Node*	current;
 	
-	ft_set_psotition(stackA);
-    ft_set_psotition(stackB);
+	ft_set_position(stackA);
+    ft_set_position(stackB);
 	current = stackB->head;
     while (current)
 	{
