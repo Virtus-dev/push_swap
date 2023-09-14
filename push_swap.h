@@ -19,7 +19,9 @@
 #include <stddef.h>
 #include <stdio.h>
 #include "libft/includes/libft.h"
+#include "libft/includes/get_next_line_bonus.h"
 #include "libft/includes/ft_printf.h"
+
 
 typedef struct Node
 {
