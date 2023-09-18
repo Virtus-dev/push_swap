@@ -6,11 +6,31 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 21:51:58 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/14 15:15:05 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:33:17 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_param_checker_plus(char **argv, int argc)
+{
+	int	*parsed;
+	int	i;
+
+	i = 1;
+	parsed = ft_parse(argv, 1);
+	if (!parsed)
+		return (free(parsed), 0);
+	while (i < argc)
+	{
+		if (!ft_is_nbr(argv[i]))
+			return (free(parsed), 0);
+		i++;
+	}
+	if (ft_isdup(argv))
+		return (free(parsed), 0);
+	return (1);
+}
 
 /**
  * @brief Checks if all of them are numbers and if some of them are duplicate.
@@ -19,12 +39,12 @@
  * @param argv (char**)
  * @return int 
  */
-int    ft_param_checker(int argc, char** argv)
+int	ft_param_checker(int argc, char **argv)
 {
-    int	i;
-	char**	splited;
-	int*	parsed;
-	
+	int		i;
+	char	**splited;
+	int		*parsed;
+
 	if (argc == 2)
 	{
 		i = 0;
@@ -42,23 +62,12 @@ int    ft_param_checker(int argc, char** argv)
 			return (ft_free_matrix(splited), free(parsed), 0);
 		return (1);
 	}
-	i = 1;
-	parsed = ft_parse(argv, 1);
-	if (!parsed)
-		return (free(parsed), 0);
-	while (i < argc)
-	{
-		if (!ft_is_nbr(argv[i]))
-			return (free(parsed), 0);
-		i++;
-	}
-	if (ft_isdup(argv))
-		return (free(parsed), 0);
+	ft_param_checker_plus(argv, argc);
 	return (1);
 }
 
 // argc should be 1 if there's more than 2 argc, or 0 in case there's only 2
-int*	ft_parse(char** splited, int argc)
+int	*ft_parse(char **splited, int argc)
 {
 	int		i;
 	int		j;
@@ -68,7 +77,7 @@ int*	ft_parse(char** splited, int argc)
 	i = argc;
 	j = 0;
 	size = ft_matrix_size(splited);
-	values = (int*) ft_calloc (ft_matrix_size(splited) * sizeof(int), 1);
+	values = (int*) ft_calloc(size, sizeof(int));
 	if (!values)
 		return (free(values), NULL);
 	while (i < size)
@@ -79,8 +88,8 @@ int*	ft_parse(char** splited, int argc)
 		}
 		else
 			values[j] = (int)ft_atol(splited[i]);
-		j++;
 		i++;
+		j++;
 	}
 	return (values);
 }

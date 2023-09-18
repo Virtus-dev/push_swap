@@ -6,7 +6,7 @@
 #    By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 13:45:44 by arigonza          #+#    #+#              #
-#    Updated: 2023/09/14 19:02:26 by arigonza         ###   ########.fr        #
+#    Updated: 2023/09/18 18:16:51 by arigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,19 @@ CFLAGS = -Wall -Wextra -Werror
 
 PUSH_SWAP = push_swap
 
-BONUS = checker
+BONUS = bonus
 
 LIBFT = libft/libft.a
 
 INC = -I libft/includes
 
-SRC = main.c parsing/param_aux_ft.c push_swap.c stack_utils/list_utils.c \
+SRC = main.c parsing/param_aux_ft.c moves/moves.c stack_utils/list_utils.c \
 	utils.c parsing/argv_checker.c stack_utils/stack_utils.c \
 	position/position_manager.c position/target_manager.c sorting/sorting.c \
 	cost.c
 
-SRC_BONUS = checkers/checker.c parsing/param_aux_ft.c push_swap.c stack_utils/list_utils.c \
+SRC_BONUS = checkers/checker.c parsing/param_aux_ft.c moves/bonus_a_moves.c moves/bonus_b_moves.c moves/bonus_double_moves.c \
+	stack_utils/list_utils.c \
 	utils.c parsing/argv_checker.c stack_utils/stack_utils.c \
 	position/position_manager.c position/target_manager.c sorting/sorting.c \
 	cost.c
@@ -50,18 +51,19 @@ $(LIBFT) :
 
 clean :
 	@make -s -C libft clean
+	@rm $(OBJ)
 	@echo 🔥🔥 Deleting all .o files 🗑️ 🗑️
 
 fclean : clean
 	@echo executing fclean...
 	@make -C libft fclean
 	@rm -rf $(PUSH_SWAP)
-	@rm -rf $(BONUS)
-	@rm $(OBJ)
+	@rm -rf checker
+	@rm $(OBJ_BONUS)
 	@echo 🔥🔥deleted executables files 🗑️ 🗑️
 
 py : all
-	python3 visualizer.py `ruby -e "puts (-249..250).to_a.shuffle.join(' ')"`
+	python3 visualizer.py `ruby -e "puts (-24..25).to_a.shuffle.join(' ')"`
 
 re : fclean all
 

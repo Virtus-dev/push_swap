@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:58:16 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/14 17:28:38 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:48:04 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_sort_3(t_stack* stack)
 {
-	int	max_index;
-	Node*	current;
+	int		max_index;
+	t_node	*current;
 
 	current = stack->head;
 	max_index = get_max_index(stack);
@@ -26,16 +26,17 @@ void	ft_sort_3(t_stack* stack)
 			ft_sa(stack);
 	}
 	else if (current->next->index == max_index)
-	{	ft_rra(stack);
+	{
+		ft_rra(stack);
 		if (!ft_is_sorted(stack))
 			ft_sa(stack);
 	}
-	else if((current->next->next->index == max_index) && !ft_is_sorted(stack))
+	else if ((current->next->next->index == max_index) && !ft_is_sorted(stack))
 		ft_sa(stack);
 
 }
 
-void	ft_sort_all(t_stack* stackA, t_stack* stackB)
+void	ft_sort_all(t_stack *stackA, t_stack *stackB)
 {
 	ft_push_until_3(stackA, stackB);
 	ft_sort_3(stackA);
@@ -50,18 +51,18 @@ void	ft_sort_all(t_stack* stackA, t_stack* stackB)
 		ft_shift_stack(stackA);
 }
 
-void    ft_choose_move(t_stack* stackA, t_stack* stackB, int a_cost, int b_cost)
+void	ft_choose_move(t_stack *stackA, t_stack *stackB, int a_cost, int b_cost)
 {
-    if (a_cost > 0 && b_cost > 0)
-        ft_rotate_both(stackA, stackB, &a_cost, &b_cost);
-    if (a_cost < 0 && b_cost < 0)
-        ft_reverse_rotate_both(stackA, stackB, &a_cost, &b_cost);
+	if (a_cost > 0 && b_cost > 0)
+		ft_rotate_both(stackA, stackB, &a_cost, &b_cost);
+	if (a_cost < 0 && b_cost < 0)
+		ft_reverse_rotate_both(stackA, stackB, &a_cost, &b_cost);
 	ft_rotate_a(stackA, &a_cost);
 	ft_rotate_b(stackB, &b_cost);
 	ft_pa(stackA, stackB);
 }
 
-void	ft_shift_stack(t_stack* stackA)
+void	ft_shift_stack(t_stack *stackA)
 {
 	int	stack_size;
 	int	lowest_index;

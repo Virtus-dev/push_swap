@@ -6,101 +6,102 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:08:53 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/14 18:51:34 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:20:58 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_exit_on_error(t_stack* stackA, t_stack* stackB)
+void	ft_leaks(void)
 {
-	ft_free_stack(stackA);
-	ft_free_stack(stackB);
+	system("leaks -q checker");
+}
+
+void	ft_exit_on_error(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
 	ft_printf("Error\n");
 	exit(1);
 }
 
-void	ft_do_op(char* op, t_stack* stackA, t_stack* stackB)
+void	ft_do_op(char *op, t_stack *stack_a, t_stack *stack_b)
 {
 	if (!strcmp(op, "sa\n"))
-		ft_sa(stackA);
+		ft_sa(stack_a);
 	else if (!strcmp(op, "pa\n"))
-		ft_pa(stackA, stackB);
+		ft_pa(stack_a, stack_b);
 	else if (!strcmp(op, "sb\n"))
-		ft_sb(stackB);
+		ft_sb(stack_b);
 	else if (!strcmp(op, "pb\n"))
-		ft_pb(stackB, stackA);
+		ft_pb(stack_b, stack_a);
 	else if (!strcmp(op, "ss\n"))
-		ft_ss(stackA, stackB);
+		ft_ss(stack_a, stack_b);
 	else if (!strcmp(op, "ra\n"))
-		ft_ra(stackA);
+		ft_ra(stack_a);
 	else if (!strcmp(op, "rb\n"))
-		ft_rb(stackB);
+		ft_rb(stack_b);
 	else if (!strcmp(op, "rr\n"))
-		ft_rr(stackA, stackB);
+		ft_rr(stack_a, stack_b);
 	else if (!strcmp(op, "rra\n"))
-		ft_rra(stackA);
+		ft_rra(stack_a);
 	else if (!strcmp(op, "rrb\n"))
-		ft_rrb(stackB);
+		ft_rrb(stack_b);
 	else if (!strcmp(op, "rrr\n"))
-		ft_rrr(stackA, stackB);
+		ft_rrr(stack_a, stack_b);
 	else
-		ft_exit_on_error(stackA, stackB);
+		ft_exit_on_error(stack_a, stack_b);
 }
 
-void    ft_checker(char** argv,int* parsed)
+void	ft_checker(int size, int *parsed)
 {
-	t_stack	stackA;
-	t_stack	stackB;
-	char* op;
-	
-    ft_initialize_stack(&stackA);
-	ft_initialize_stack(&stackB);
+	t_stack	stack_a;
+	t_stack	stack_b;
+	char	*op;
+
+	ft_initialize_stack(&stack_a);
+	ft_initialize_stack(&stack_b);
+	ft_fill_stack(&stack_a, size, parsed);
 	op = get_next_line(0);
-	ft_fill_stack(&stackA, ft_matrix_size(argv), parsed);
 	while (op)
 	{
-		ft_do_op(op, &stackA, &stackB);
+		ft_do_op(op, &stack_a, &stack_b);
 		free(op);
 		op = get_next_line(0);
 	}
-	if (ft_is_sorted(&stackA))
+	if (ft_is_sorted(&stack_a) && stack_b.size == 0)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 }
 
-int main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
-	int size;
-    int* parsed;
-	char** splited;
+	int		size;
+	char	**splited;
 
-    parsed = NULL;
-    if (argc > 1)
-    {
-        if (!ft_param_checker(argc, argv))
-        {
-            ft_printf("Error\n");
-        }
-        else
-        {
-            if (argc == 2)
-            {
-                splited = ft_split(argv[1], ' ');
-                size = ft_matrix_size(splited);
-                parsed = ft_parse(splited, 0);
-				ft_checker(argv, parsed);
-                ft_free_matrix(splited);
-            }
-            else
-            {
-                size = (ft_matrix_size(argv) - 1);
-                parsed = ft_parse(argv, 1);
-				ft_checker(argv, parsed);
-            }
-        }
-        free(parsed);
-    }
-    return 0;
+	//ft_leaks();
+	if (argc > 1)
+	{
+		if (!ft_param_checker(argc, argv))
+			ft_printf("Error\n");
+		else
+		{
+			if (argc == 2)
+			{
+				splited = ft_split(argv[1], ' ');
+				size = ft_matrix_size(splited);
+				ft_checker(size, ft_parse(splited, 0));
+				ft_free_matrix(splited);
+			}
+			else
+			{
+				size = (ft_matrix_size(argv) - 1);
+				ft_checker(size, ft_parse(argv, 1));
+			}
+		}
+	}
+	return (0);
 }

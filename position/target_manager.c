@@ -6,33 +6,33 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:14:43 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/14 15:35:45 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:48:41 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_set_position(t_stack* stack)
+void	ft_set_position(t_stack *stack)
 {
-    int i;
-    Node* current;
+	int		i;
+	t_node	*current;
 
     i = 0;
-    current = stack->head;
-    while (current)
-    {
-        current->pos = i;
-        i++;
-        current = current->next;
-    }
+	current = stack->head;
+	while (current)
+	{
+		current->pos = i;
+		i++;
+		current = current->next;
+	}
 }
 
-int	ft_find_tp(t_stack* stackA, int b_index)
+int	ft_find_tp(t_stack *stackA, int b_index)
 {
-	Node*	current;
+	t_node	*current;
 	int		a_index;
 	int		target_pos;
-	
+
 	current = stackA->head;
 	a_index = INT_MAX;
 	while (current)
@@ -59,14 +59,14 @@ int	ft_find_tp(t_stack* stackA, int b_index)
 	return (target_pos);
 }
 
-void	ft_set_target_position(t_stack* stackA, t_stack* stackB)
+void	ft_set_target_position(t_stack *stackA, t_stack *stackB)
 {
-    Node*	current;
-	
+	t_node	*current;
+
 	ft_set_position(stackA);
-    ft_set_position(stackB);
+	ft_set_position(stackB);
 	current = stackB->head;
-    while (current)
+	while (current)
 	{
 		current->target_pos = ft_find_tp(stackA, current->index);
 		current = current->next;

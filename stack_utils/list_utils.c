@@ -13,13 +13,15 @@
 
 #include "../push_swap.h"
 
-Node	*create_node(int value)
+t_node	*create_node(int value)
 {
-    Node* newNode = (Node*) ft_calloc(sizeof(Node), 1);
-	newNode->value = value;
-	newNode->index = 0;
-	newNode->next = NULL;
-	return (newNode);
+	t_node	*new_node;
+
+    new_node = (t_node *)malloc(sizeof(t_node) * 1);
+	new_node->value = value;
+	new_node->index = 0;
+	new_node->next = NULL;
+	return (new_node);
 }
 
 /**
@@ -28,12 +30,12 @@ Node	*create_node(int value)
  * @param stack 
  * @return Node* 
  */
-Node	*pop(t_stack* stack)
+t_node	*pop(t_stack *stack)
 {
-	Node*	tmp;
+	t_node	*tmp;
 
 	if (!stack || stack->head == NULL)
-		return NULL;
+		return (NULL);
 	tmp = stack->head;
 	stack->head = stack->head->next;
 	tmp->next = NULL;
@@ -41,24 +43,24 @@ Node	*pop(t_stack* stack)
 	return (tmp);
 }
 
-void	insert_node_head(t_stack* stack, Node* node)
+void	insert_node_head(t_stack *stack, t_node *node)
 {
-	Node*	tmp;
+	t_node*	tmp;
 
 	if (!stack || !node)
-		return;
+		return ;
 	tmp = stack->head;
 	stack->head = node;
 	stack->head->next = tmp;
 	stack->size++;
 }
 
-void	insert_node_tail(t_stack* stack, Node* node)
+void	insert_node_tail(t_stack *stack, t_node *node)
 {
-	Node*	current;
+	t_node	*current;
 
 	if (!stack || !node)
-		return;
+		return ;
 	current = stack->head;
 	while (current->next)
 	{
@@ -69,7 +71,7 @@ void	insert_node_tail(t_stack* stack, Node* node)
 	stack->size++;
 }
 
-void	destroy_node(Node* node)
+void	destroy_node(t_node *node)
 {
 	free(node);
 }
