@@ -6,13 +6,13 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:58:16 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 17:48:04 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:08:32 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sort_3(t_stack* stack)
+void	ft_sort_3(t_stack *stack)
 {
 	int		max_index;
 	t_node	*current;
@@ -33,14 +33,12 @@ void	ft_sort_3(t_stack* stack)
 	}
 	else if ((current->next->next->index == max_index) && !ft_is_sorted(stack))
 		ft_sa(stack);
-
 }
 
 void	ft_sort_all(t_stack *stackA, t_stack *stackB)
 {
 	ft_push_until_3(stackA, stackB);
 	ft_sort_3(stackA);
-
 	while (stackB->size > 0)
 	{
 		ft_set_target_position(stackA, stackB);

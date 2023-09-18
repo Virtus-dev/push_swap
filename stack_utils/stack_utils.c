@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 10:08:03 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 16:24:41 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:10:28 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_fill_stack(t_stack *stack, int size, int *parsed)
 {
 	while (0 < size)
 	{
-		insert_node_head(stack, create_node(parsed[size-1]));
+		insert_node_head(stack, create_node(parsed[size - 1]));
 		size--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:08:53 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 18:20:58 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:43:26 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int argc, char **argv)
 	int		size;
 	char	**splited;
 
-	//ft_leaks();
 	if (argc > 1)
 	{
 		if (!ft_param_checker(argc, argv))

@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:14:43 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 17:48:41 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:10:49 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_set_position(t_stack *stack)
 	int		i;
 	t_node	*current;
 
-    i = 0;
+	i = 0;
 	current = stack->head;
 	while (current)
 	{

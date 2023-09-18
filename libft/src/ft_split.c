@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:28 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/03 14:30:29 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:52:57 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static int	ft_counterwords(const char *s, char c)
 {
 	int	i;
 	int	words;
+
 	i = 0;
 	words = 0;
 	while (s[i] != '\0')
@@ -40,7 +41,7 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	j = 0;
 	found = 0;
-	splitedstr = (char**)malloc (sizeof(char *) * (ft_counterwords(s, c) + 1));
+	splitedstr = (char **)malloc(sizeof(char *) * (ft_counterwords(s, c) + 1));
 	if (!splitedstr)
 		return (free(splitedstr), NULL);
 	while (s[i] != '\0')

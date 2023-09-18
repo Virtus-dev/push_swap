@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
 
 t_node	*create_node(int value)
 {
 	t_node	*new_node;
 
-    new_node = (t_node *)malloc(sizeof(t_node) * 1);
+	new_node = (t_node *)malloc(sizeof(t_node) * 1);
 	new_node->value = value;
 	new_node->index = 0;
 	new_node->next = NULL;
@@ -45,7 +44,7 @@ t_node	*pop(t_stack *stack)
 
 void	insert_node_head(t_stack *stack, t_node *node)
 {
-	t_node*	tmp;
+	t_node	*tmp;
 
 	if (!stack || !node)
 		return ;

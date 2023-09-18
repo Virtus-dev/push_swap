@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:55:27 by arigonza          #+#    #+#             */
-/*   Updated: 2023/07/03 15:58:36 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:47:00 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 /*
 * Transform a string into a long data type
 * in order to handle errors in the push_swap function.
-* (returns an int, checking first if is less than the INT_MAX and casting it into an int).
-*/ 
- 
+* (returns an int, checking first if is less than the
+* INT_MAX and casting it into an int).
+* TODO comprobar si hay ceros delante y controlar el maximo y minimo entero
+*/
 long	ft_atol(const char *str)
 {
 	int		i;
@@ -26,7 +27,6 @@ long	ft_atol(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	// TODO comprobar si hay ceros delante y controlar el maximo y minimo entero
 	while (ft_is_space(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')

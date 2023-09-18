@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 21:51:58 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 16:33:17 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:02:19 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ int	*ft_parse(char **splited, int argc)
 	int		i;
 	int		j;
 	int		size;
-	int*	values;
+	int		*values;
 
 	i = argc;
 	j = 0;
 	size = ft_matrix_size(splited);
-	values = (int*) ft_calloc(size, sizeof(int));
+	values = (int *)ft_calloc(size, sizeof(int));
 	if (!values)
 		return (free(values), NULL);
 	while (i < size)

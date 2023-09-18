@@ -6,13 +6,14 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:17:07 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 17:43:32 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:03:11 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_rotate_both(t_stack *stack_a, t_stack *stack_b, int *a_cost, int *b_cost)
+void	ft_rotate_both(t_stack *stack_a, t_stack *stack_b,
+	int *a_cost, int *b_cost)
 {
 	while (*a_cost > 0 && *b_cost > 0)
 	{
@@ -22,7 +23,8 @@ void	ft_rotate_both(t_stack *stack_a, t_stack *stack_b, int *a_cost, int *b_cost
 	}
 }
 
-void	ft_reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, int *a_cost, int *b_cost)
+void	ft_reverse_rotate_both(t_stack *stack_a, t_stack *stack_b,
+	int *a_cost, int *b_cost)
 {
 	while (*a_cost < 0 && *b_cost < 0)
 	{
@@ -31,6 +33,7 @@ void	ft_reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, int *a_cost, int
 		(*b_cost)++;
 	}
 }
+
 void	ft_rotate_a(t_stack *stack_a, int *a_cost)
 {
 	while (*a_cost)
