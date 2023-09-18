@@ -6,7 +6,7 @@
 #    By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 13:45:44 by arigonza          #+#    #+#              #
-#    Updated: 2023/09/18 18:16:51 by arigonza         ###   ########.fr        #
+#    Updated: 2023/09/18 19:15:12 by arigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT = libft/libft.a
 
 INC = -I libft/includes
 
-SRC = main.c parsing/param_aux_ft.c moves/moves.c stack_utils/list_utils.c \
+SRC = main.c parsing/param_aux_ft.c moves/a_moves.c moves/b_moves.c moves/double_moves.c \
+	stack_utils/list_utils.c \
 	utils.c parsing/argv_checker.c stack_utils/stack_utils.c \
 	position/position_manager.c position/target_manager.c sorting/sorting.c \
 	cost.c
