@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 10:08:03 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 19:10:28 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:04:21 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	ft_free_stack(t_stack *stack)
 	t_node	*current;
 	t_node	*next_node;
 
-	if (!stack->head)
+	if (!stack && !stack->head)
 		return ;
 	current = stack->head;
-	next_node = current->next;
-	while (current->next)
+	while (current)
 	{
+		next_node = current->next;
 		destroy_node(current);
 		current = next_node;
-		next_node = current->next;
 	}
+	stack->head = NULL;
 }
 
 /**

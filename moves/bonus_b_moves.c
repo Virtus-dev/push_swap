@@ -6,13 +6,13 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:36:25 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 18:55:09 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:37:15 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sb(t_stack *stack_b)
+void	ft_sb_bonus(t_stack *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -25,17 +25,17 @@ void	ft_sb(t_stack *stack_b)
 	insert_node_head(stack_b, second);
 }
 
-void	ft_pb(t_stack *stack_b, t_stack *stack_a)
+void	ft_pb_bonus(t_stack *stack_b, t_stack *stack_a)
 {
 	insert_node_head(stack_b, pop(stack_a));
 }
 
-void	ft_rb(t_stack *stack_b)
+void	ft_rb_bonus(t_stack *stack_b)
 {
 	insert_node_tail(stack_b, pop(stack_b));
 }
 
-void	ft_rrb(t_stack *stack_b)
+void	ft_rrb_bonus(t_stack *stack_b)
 {
 	t_node	*prev;
 	t_node	*current;

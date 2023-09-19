@@ -6,7 +6,7 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 21:51:58 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 19:02:19 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:11:56 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_param_checker_plus(char **argv, int argc)
 	}
 	if (ft_isdup(argv))
 		return (free(parsed), 0);
-	return (1);
+	return (free(parsed), 1);
 }
 
 /**
@@ -60,10 +60,9 @@ int	ft_param_checker(int argc, char **argv)
 		}
 		if (ft_isdup(splited))
 			return (ft_free_matrix(splited), free(parsed), 0);
-		return (1);
+		return (ft_free_matrix(splited), free(parsed), 1);
 	}
-	ft_param_checker_plus(argv, argc);
-	return (1);
+	return (ft_param_checker_plus(argv, argc));
 }
 
 // argc should be 1 if there's more than 2 argc, or 0 in case there's only 2
@@ -77,7 +76,7 @@ int	*ft_parse(char **splited, int argc)
 	i = argc;
 	j = 0;
 	size = ft_matrix_size(splited);
-	values = (int *)ft_calloc(size, sizeof(int));
+	values = (int *)malloc(size * sizeof(int));
 	if (!values)
 		return (free(values), NULL);
 	while (i < size)

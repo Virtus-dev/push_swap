@@ -6,11 +6,11 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:05:28 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 18:52:57 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:03:45 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_counterwords(const char *s, char c)
 {

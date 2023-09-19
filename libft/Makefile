@@ -6,7 +6,7 @@
 #    By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 13:46:00 by arigonza          #+#    #+#              #
-#    Updated: 2023/09/18 11:19:54 by arigonza         ###   ########.fr        #
+#    Updated: 2023/09/19 12:22:36 by arigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 
 %.o: %.c
 	@gcc $(CFLAGS) -I includes -o $@ -c $<

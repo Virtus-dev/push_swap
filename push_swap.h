@@ -48,7 +48,7 @@ typedef struct t_stack
 # define NONE "\033[0;37m"
 //Colors End
 
-void	ft_sort_stack(t_stack *stack_a, t_stack *stack_b);
+void	push_swap(int *parsed, int size);
 // list_utils
 t_node	*create_node(int value);
 t_node	*pop(t_stack *stack);
@@ -95,6 +95,21 @@ void	ft_rrb(t_stack *stack_b);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 void	ft_reverse_rotate_both(t_stack *stack_a, t_stack *stack_b,
 			int *a_cost, int *b_cost);
+// Bonus swap operations
+void	ft_sa_bonus(t_stack *stack_a);
+void	ft_sb_bonus(t_stack *stack_b);
+void	ft_ss_bonus(t_stack *stack_a, t_stack *stack_b);
+// Bonus push operations
+void	ft_pa_bonus(t_stack *stack_a, t_stack *stack_b);
+void	ft_pb_bonus(t_stack *stack_b, t_stack *stack_a);
+// Bonus rotate operations
+void	ft_ra_bonus(t_stack *stack_a);
+void	ft_rb_bonus(t_stack *stack_b);
+void	ft_rr_bonus(t_stack *stack_a, t_stack *stack_b);
+// Bonus reverse rotate operations
+void	ft_rra_bonus(t_stack *stack_a);
+void	ft_rrb_bonus(t_stack *stack_b);
+void	ft_rrr_bonus(t_stack *stack_a, t_stack *stack_b);
 // target manager
 void	ft_set_position(t_stack *stack);
 int		ft_find_tp(t_stack *stack_a, int b_index);

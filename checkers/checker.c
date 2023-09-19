@@ -6,16 +6,18 @@
 /*   By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:08:53 by arigonza          #+#    #+#             */
-/*   Updated: 2023/09/18 18:43:26 by arigonza         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:38:31 by arigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/*
 void	ft_leaks(void)
 {
 	system("leaks -q checker");
 }
+*/
 
 void	ft_exit_on_error(t_stack *stack_a, t_stack *stack_b)
 {
@@ -28,27 +30,27 @@ void	ft_exit_on_error(t_stack *stack_a, t_stack *stack_b)
 void	ft_do_op(char *op, t_stack *stack_a, t_stack *stack_b)
 {
 	if (!strcmp(op, "sa\n"))
-		ft_sa(stack_a);
+		ft_sa_bonus(stack_a);
 	else if (!strcmp(op, "pa\n"))
-		ft_pa(stack_a, stack_b);
+		ft_pa_bonus(stack_a, stack_b);
 	else if (!strcmp(op, "sb\n"))
-		ft_sb(stack_b);
+		ft_sb_bonus(stack_b);
 	else if (!strcmp(op, "pb\n"))
-		ft_pb(stack_b, stack_a);
+		ft_pb_bonus(stack_b, stack_a);
 	else if (!strcmp(op, "ss\n"))
-		ft_ss(stack_a, stack_b);
+		ft_ss_bonus(stack_a, stack_b);
 	else if (!strcmp(op, "ra\n"))
-		ft_ra(stack_a);
+		ft_ra_bonus(stack_a);
 	else if (!strcmp(op, "rb\n"))
-		ft_rb(stack_b);
+		ft_rb_bonus(stack_b);
 	else if (!strcmp(op, "rr\n"))
-		ft_rr(stack_a, stack_b);
+		ft_rr_bonus(stack_a, stack_b);
 	else if (!strcmp(op, "rra\n"))
-		ft_rra(stack_a);
+		ft_rra_bonus(stack_a);
 	else if (!strcmp(op, "rrb\n"))
-		ft_rrb(stack_b);
+		ft_rrb_bonus(stack_b);
 	else if (!strcmp(op, "rrr\n"))
-		ft_rrr(stack_a, stack_b);
+		ft_rrr_bonus(stack_a, stack_b);
 	else
 		ft_exit_on_error(stack_a, stack_b);
 }
@@ -73,6 +75,7 @@ void	ft_checker(int size, int *parsed)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	free(parsed);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
 }
