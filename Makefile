@@ -6,7 +6,7 @@
 #    By: arigonza < arigonza@student.42malaga.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 13:45:44 by arigonza          #+#    #+#              #
-#    Updated: 2023/09/19 16:57:56 by arigonza         ###   ########.fr        #
+#    Updated: 2023/09/19 17:02:58 by arigonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,12 +56,13 @@ clean :
 
 fclean : clean clean_bonus
 	@echo executing fclean...
+	@make -s -C libft fclean
 	@rm -rf $(PUSH_SWAP) checker
 	@echo 🔥🔥deleted executables files 🗑️ 🗑️
 
 clean_bonus :
 	@rm $(OBJ_BONUS)
-	@echo Deleting bonus files.
+	@echo Deleting bonus .o files
 
 py : all
 	python3 visualizer.py `ruby -e "puts (-249..250).to_a.shuffle.join(' ')"`
